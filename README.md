@@ -42,19 +42,11 @@ Perfect for:
 
 ## 📥 Download
 
-### Option 1: Direct Download (Easiest)
-
 Download the standalone executable directly from the repository:
 
-**[⬇️ Download OCR_ClipText.exe](https://github.com/DancingTedDanson011/AutoClip-OCR/raw/main/dist/OCR_ClipText.exe)** (18.3 MB)
+**[⬇️ Download OCR_ClipText.exe](https://github.com/DancingTedDanson011/AutoClip-OCR/raw/main/dist/OCR_ClipText.exe)** (~18 MB)
 
 Just download and run - no installation needed!
-
-### Option 2: With Installer (Coming Soon)
-
-A full installer with guided setup will be available in [Releases](https://github.com/DancingTedDanson011/AutoClip-OCR/releases).
-
-Want to build the installer yourself? See [INSTALLER_BUILD.md](INSTALLER_BUILD.md)
 
 ### Requirements
 
@@ -79,15 +71,21 @@ Want to build the installer yourself? See [INSTALLER_BUILD.md](INSTALLER_BUILD.m
 
 1. [Download OCR_ClipText.exe](https://github.com/DancingTedDanson011/AutoClip-OCR/raw/main/dist/OCR_ClipText.exe) (direct link)
 2. Double-click to run
-3. The app will start in the background (look for the notification)
-4. ✅ Done! Press `Ctrl+Alt+S` to use it
+3. **First run**: A settings dialog will appear:
+   - ✅ Choose if you want the app to start automatically with Windows (recommended)
+   - ✅ Select your preferred OCR language (English, German, or both)
+   - ✅ Click "Save" to apply settings
+4. The app will then start in the background (look for the System Tray icon 📋)
+5. ✅ Done! Press `Ctrl+Alt+S` to use it
 
 **Note**: Windows Defender may show a warning for downloaded .exe files. Click "More info" → "Run anyway" (the app is safe, it's just unsigned).
 
-### Auto-Start (Optional)
+### System Tray Integration
 
-The app automatically adds itself to Windows startup on first run. To disable:
-- Press `Win + R`, type `shell:startup`, and delete the AutoClip-OCR shortcut
+After the first run, AutoClip-OCR runs silently in the background:
+- 📋 **System Tray Icon**: Right-click to access settings or exit the app
+- ⚙️ **Settings**: Access anytime via the System Tray icon
+- 🔄 **Auto-Start**: Manage startup behavior from the settings dialog
 
 ---
 
@@ -119,9 +117,20 @@ The app automatically adds itself to Windows startup on first run. To disable:
 
 ## ⚙️ Configuration
 
-### Change Hotkey
+### Settings Dialog
 
-Edit `ocr_snip.py`, line 18:
+Access settings anytime via:
+1. Right-click the System Tray icon (📋)
+2. Select "Settings"
+
+Available settings:
+- **Auto-Start**: Enable/disable Windows startup
+- **OCR Language**: Choose English, German, or both
+- **Hotkey**: `Ctrl+Alt+S` (configurable in source code only)
+
+### Advanced: Change Hotkey
+
+To change the hotkey, edit `ocr_snip_v2.py`, line 20:
 
 ```python
 HOTKEY = "ctrl+alt+s"  # Change to your preferred combination
@@ -132,17 +141,7 @@ Examples:
 - `"alt+x"`
 - `"ctrl+alt+c"`
 
-### Change OCR Language
-
-Edit `ocr_snip.py`, line 19:
-
-```python
-OCR_LANG = "eng"        # English only
-# OCR_LANG = "deu"      # German only
-# OCR_LANG = "deu+eng"  # German + English
-```
-
-**Note**: Language data must be installed in Tesseract!
+Then rebuild the EXE (see [Building from Source](#-building-from-source))
 
 ---
 
@@ -165,7 +164,7 @@ cd AutoClip-OCR
 pip install -r requirements.txt
 
 # Run from source
-python ocr_snip.py
+python ocr_snip_v2.py
 ```
 
 ### Build Executable
@@ -183,7 +182,7 @@ python -m PyInstaller --clean --noconfirm ocr_snip.spec
 
 ```
 AutoClip-OCR/
-├── ocr_snip.py              # Main application
+├── ocr_snip_v2.py           # Main application (with System Tray & Settings)
 ├── ocr_snip.spec            # PyInstaller build config
 ├── app_icon.ico             # Application icon
 ├── requirements.txt         # Python dependencies
@@ -201,11 +200,7 @@ AutoClip-OCR/
 
 **Solution**: Install Tesseract OCR (see [Installation](#-installation))
 
-If still not found after installation, manually set the path in `ocr_snip.py`:
-
-```python
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-```
+If still not found after installation, the app will automatically search common locations. Check the settings dialog to verify Tesseract status.
 
 ### "No text recognized"
 

@@ -19,13 +19,14 @@ excludes = [
 ]
 
 a = Analysis(
-    ['ocr_snip.py'],
+    ['ocr_snip_v2.py'],
     pathex=[],
     binaries=[],
     datas=[],
     hiddenimports=[
         'PIL._tkinter_finder',
         'win32timezone',
+        'pystray._win32',
     ],
     hookspath=[],
     hooksconfig={},

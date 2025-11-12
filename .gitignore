@@ -61,3 +61,6 @@ ocr_snip_minimal.spec
 
 # Git
 .git/
+
+# Claude Code
+.claude/
