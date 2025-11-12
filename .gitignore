@@ -58,6 +58,8 @@ desktop.ini
 tesseract/
 SCHNELLSTART.txt
 ocr_snip_minimal.spec
+build.bat
+start.bat
 
 # Git
 .git/
