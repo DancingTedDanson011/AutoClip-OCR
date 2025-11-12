@@ -30,8 +30,8 @@ build/
 dist/*
 !dist/OCR_ClipText.exe
 
-# Installer outputs (Inno Setup)
-installer_output/
+# Installer outputs (compiled installer will be in GitHub Releases)
+# installer_output/
 *.msi
 
 # IDEs
