@@ -42,11 +42,19 @@ Perfect for:
 
 ## 📥 Download
 
-### Pre-built Binary (Recommended)
+### Option 1: Direct Download (Easiest)
 
-Download the latest release:
+Download the standalone executable directly from the repository:
 
-**[⬇️ Download OCR_ClipText.exe](https://github.com/DancingTedDanson011/AutoClip-OCR/releases/latest)**
+**[⬇️ Download OCR_ClipText.exe](https://github.com/DancingTedDanson011/AutoClip-OCR/raw/main/dist/OCR_ClipText.exe)** (18.3 MB)
+
+Just download and run - no installation needed!
+
+### Option 2: With Installer (Coming Soon)
+
+A full installer with guided setup will be available in [Releases](https://github.com/DancingTedDanson011/AutoClip-OCR/releases).
+
+Want to build the installer yourself? See [INSTALLER_BUILD.md](INSTALLER_BUILD.md)
 
 ### Requirements
 
@@ -69,10 +77,12 @@ Download the latest release:
 
 ### Step 2: Run AutoClip-OCR
 
-1. Download `OCR_ClipText.exe` from [Releases](https://github.com/DancingTedDanson011/AutoClip-OCR/releases)
+1. [Download OCR_ClipText.exe](https://github.com/DancingTedDanson011/AutoClip-OCR/raw/main/dist/OCR_ClipText.exe) (direct link)
 2. Double-click to run
 3. The app will start in the background (look for the notification)
 4. ✅ Done! Press `Ctrl+Alt+S` to use it
+
+**Note**: Windows Defender may show a warning for downloaded .exe files. Click "More info" → "Run anyway" (the app is safe, it's just unsigned).
 
 ### Auto-Start (Optional)
 
