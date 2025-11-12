@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller build artifacts
+build/
+*.manifest
+*.spec.bak
+
+# Ignore everything in dist except the final .exe
+dist/*
+!dist/OCR_ClipText.exe
+
+# Installer outputs (Inno Setup)
+installer_output/
+*.msi
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+
+# Development/Build files - nicht ins Repo
+tesseract/
+SCHNELLSTART.txt
+ocr_snip_minimal.spec
+
+# Git
+.git/

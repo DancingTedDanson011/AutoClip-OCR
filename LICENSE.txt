@@ -1,0 +1,189 @@
+# Creative Commons Attribution-NonCommercial 4.0 International License
+
+Copyright (c) 2025 AntiStutter Contributors
+
+---
+
+## Summary
+
+This work is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License** (CC BY-NC 4.0).
+
+You are free to:
+- **Share** — copy and redistribute the material in any medium or format
+- **Adapt** — remix, transform, and build upon the material
+
+Under the following terms:
+- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made
+- **NonCommercial** — You may NOT use the material for commercial purposes
+
+---
+
+## Full License
+
+### You are free to:
+
+**Share** — copy and redistribute the material in any medium or format for any purpose, even commercially.
+
+**Adapt** — remix, transform, and build upon the material for any purpose, even commercially.
+
+The licensor cannot revoke these freedoms as long as you follow the license terms.
+
+### Under the following terms:
+
+**Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+
+**NonCommercial** — You may not use the material for commercial purposes.
+
+**No additional restrictions** — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+### Notices:
+
+You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation.
+
+No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.
+
+---
+
+## What is NOT allowed (Commercial Use):
+
+The following uses are **prohibited** without explicit written permission:
+
+❌ **Selling** the software or its derivatives
+❌ **Including** in commercial products or services
+❌ **Using** in paid applications or SaaS platforms
+❌ **Corporate/Business** use for profit
+❌ **Advertising** or promotional purposes for commercial gain
+❌ **Paid consulting** or support services based on this software
+❌ **Cloud services** offering this software for a fee
+
+### Examples of Commercial Use (NOT allowed):
+
+- Selling AntiStutter as a product
+- Including AntiStutter in a paid app
+- Offering AntiStutter as a paid online service
+- Using AntiStutter in a speech therapy clinic that charges patients
+- Building a commercial product based on AntiStutter's code
+- Running ads on a website that uses AntiStutter
+
+---
+
+## What IS allowed (Non-Commercial Use):
+
+✅ **Personal use** — Use at home for yourself
+✅ **Educational use** — Use in schools, universities (non-profit)
+✅ **Research** — Academic and scientific research
+✅ **Hobby projects** — Personal learning and experimentation
+✅ **Open source contributions** — Contributing back to this project
+✅ **Non-profit organizations** — Use by registered non-profits
+✅ **Sharing** — Sharing with friends, family, community
+✅ **Teaching** — Using in free courses or workshops
+
+### Examples of Non-Commercial Use (Allowed):
+
+- Using AntiStutter at home for personal stuttering reduction
+- Using in university research projects
+- Adapting for a school science project
+- Contributing improvements back to this repository
+- Using in a free, non-profit stuttering support group
+- Teaching others how to use it in free workshops
+
+---
+
+## Commercial Licensing
+
+If you wish to use AntiStutter for **commercial purposes**, please contact the author to discuss licensing options:
+
+**Contact for Commercial Licensing:**
+- Email: your-email@example.com
+- Subject: "Commercial License Request for AntiStutter"
+
+We offer flexible commercial licensing for:
+- Speech therapy clinics
+- Healthcare providers
+- Corporate wellness programs
+- Commercial software integration
+- OEM licensing
+
+---
+
+## Medical Disclaimer
+
+**IMPORTANT**: This software is provided for **educational and research purposes only**.
+
+- ❌ This is NOT a medical device
+- ❌ This does NOT replace professional speech therapy
+- ❌ This is NOT approved by any medical regulatory agency
+- ❌ No medical claims are made about effectiveness
+
+**Users with stuttering disorders should consult licensed speech-language pathologists.**
+
+By using this software, you acknowledge:
+- You understand this is experimental research software
+- You will not use it as a substitute for professional medical advice
+- You use it at your own risk
+- The authors assume no liability for any outcomes
+
+---
+
+## Warranty Disclaimer
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+---
+
+## Attribution Requirements
+
+When sharing or adapting this work, you must:
+
+1. **Give credit** to "AntiStutter Contributors"
+2. **Provide a link** to: https://github.com/DancingTedDanson011/antistutter
+3. **Indicate changes** if you modified the material
+4. **Include this license** or link to it
+
+Example attribution:
+
+```
+Based on AntiStutter by AntiStutter Contributors
+Licensed under CC BY-NC 4.0
+https://github.com/DancingTedDanson011/antistutter
+```
+
+---
+
+## Source Code Notice
+
+While the license allows adaptation, we encourage you to:
+
+- Contribute improvements back to this repository
+- Share your modifications with the community
+- Follow open source best practices
+- Respect the non-commercial intent
+
+---
+
+## Full Legal License Text
+
+For the complete legal text of CC BY-NC 4.0, see:
+https://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+For a human-readable summary, see:
+https://creativecommons.org/licenses/by-nc/4.0/
+
+---
+
+## Questions?
+
+**Not sure if your use case is commercial?**
+
+Contact us before using: your-email@example.com
+
+General guideline:
+- If money is involved → Probably commercial
+- If it's free and educational → Probably non-commercial
+
+---
+
+**Last Updated**: 2025-10-29
+**License Version**: CC BY-NC 4.0
