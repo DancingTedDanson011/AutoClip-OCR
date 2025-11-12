@@ -1,13 +1,13 @@
 # -*- mode: python ; coding: utf-8 -*-
-# Minimale PyInstaller spec für OCR ClipText (nur benötigte Pakete)
+# Minimal PyInstaller spec for OCR ClipText (only required packages)
 
 block_cipher = None
 
-# Nur die wirklich benötigten Pakete
+# Only the really required packages
 excludes = [
     'torch', 'torchvision', 'torchaudio',
     'tensorflow', 'tensorboard',
-    'scipy', 'pandas', 'numpy',  # Pillow braucht kein NumPy
+    'scipy', 'pandas', 'numpy',  # Pillow doesn't need NumPy
     'matplotlib', 'seaborn',
     'pytest', 'unittest',
     'IPython', 'jupyter',

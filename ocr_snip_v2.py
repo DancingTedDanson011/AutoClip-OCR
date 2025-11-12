@@ -1,5 +1,5 @@
-# AutoClip-OCR - Screenshot OCR mit System Tray & Settings
-# Version 2.0 - Hybrid EXE mit integriertem Settings-Dialog
+# AutoClip-OCR - Screenshot OCR with System Tray & Settings
+# Version 2.0 - Hybrid EXE with integrated Settings Dialog
 
 import tkinter as tk
 from tkinter import ttk, messagebox
@@ -15,7 +15,7 @@ import winreg
 import json
 from pathlib import Path
 
-# --- Konfiguration ---
+# --- Configuration ---
 APP_NAME = "AutoClip-OCR"
 VERSION = "2.0"
 HOTKEY = "ctrl+alt+s"
@@ -28,7 +28,7 @@ class Config:
         self.config = self.load()
 
     def load(self):
-        """Lädt Config oder erstellt Default"""
+        """Loads config or creates default"""
         default_config = {
             "first_run": True,
             "autostart": False,
@@ -40,7 +40,7 @@ class Config:
             if os.path.exists(CONFIG_FILE):
                 with open(CONFIG_FILE, 'r') as f:
                     loaded = json.load(f)
-                    # Merge mit defaults (falls neue Keys hinzugefügt wurden)
+                    # Merge with defaults (in case new keys were added)
                     return {**default_config, **loaded}
         except:
             pass
@@ -48,14 +48,14 @@ class Config:
         return default_config
 
     def save(self):
-        """Speichert Config"""
+        """Saves config"""
         try:
             os.makedirs(self.config_dir, exist_ok=True)
             with open(CONFIG_FILE, 'w') as f:
                 json.dump(self.config, f, indent=2)
             return True
         except Exception as e:
-            print(f"Fehler beim Speichern: {e}")
+            print(f"Error saving: {e}")
             return False
 
     def get(self, key, default=None):
@@ -71,12 +71,12 @@ class Config:
         self.config["first_run"] = False
         self.save()
 
-# Globale Config-Instanz
+# Global config instance
 config = Config()
 
-# --- Tesseract-Pfad finden ---
+# --- Find Tesseract Path ---
 def find_tesseract():
-    """Versucht Tesseract automatisch zu finden"""
+    """Tries to find Tesseract automatically"""
     appdata_path = os.path.join(
         os.path.expanduser("~"),
         "AppData", "Local", "Programs", "Tesseract-OCR", "tesseract.exe"
@@ -109,7 +109,7 @@ if tesseract_path:
 
 # --- Autostart Management ---
 def is_in_autostart():
-    """Prüft ob App im Autostart ist"""
+    """Checks if app is in autostart"""
     try:
         key = winreg.OpenKey(
             winreg.HKEY_CURRENT_USER,
@@ -126,7 +126,7 @@ def is_in_autostart():
         return False
 
 def set_autostart(enabled):
-    """Aktiviert/Deaktiviert Autostart"""
+    """Enables/Disables autostart"""
     try:
         key = winreg.OpenKey(
             winreg.HKEY_CURRENT_USER,
@@ -147,16 +147,16 @@ def set_autostart(enabled):
         winreg.CloseKey(key)
         return True
     except Exception as e:
-        print(f"Autostart-Fehler: {e}")
+        print(f"Autostart error: {e}")
         return False
 
-# --- Toast-Benachrichtigungen ---
+# --- Toast Notifications ---
 class SimpleToast:
-    """Einfache Benachrichtigungen mit Tkinter"""
+    """Simple notifications with Tkinter"""
 
     @staticmethod
     def show(title, message, duration=3):
-        """Zeigt Benachrichtigung"""
+        """Shows notification"""
         def show_notification():
             try:
                 root = tk.Tk()
@@ -200,7 +200,7 @@ class SimpleToast:
 
 TOAST = SimpleToast()
 
-# --- Settings-Dialog ---
+# --- Settings Dialog ---
 class SettingsDialog:
     def __init__(self, parent=None):
         self.root = tk.Toplevel(parent) if parent else tk.Tk()
@@ -208,7 +208,7 @@ class SettingsDialog:
         self.root.geometry("500x400")
         self.root.resizable(False, False)
 
-        # Icon setzen (falls vorhanden)
+        # Set icon (if available)
         try:
             icon_path = os.path.join(os.path.dirname(sys.executable if getattr(sys, 'frozen', False) else __file__), "app_icon.ico")
             if os.path.exists(icon_path):
@@ -229,7 +229,7 @@ class SettingsDialog:
         self.root.geometry(f"500x400+{x}+{y}")
 
     def setup_ui(self):
-        """Erstellt die UI"""
+        """Creates the UI"""
         # Header
         header_frame = tk.Frame(self.root, bg='#2b2b2b', height=60)
         header_frame.pack(fill='x')
@@ -337,18 +337,18 @@ Bei Problemen: github.com/DancingTedDanson011/AutoClip-OCR"""
         ).pack(side='right')
 
     def load_current_settings(self):
-        """Lädt aktuelle Einstellungen"""
+        """Loads current settings"""
         self.autostart_var.set(is_in_autostart())
         self.lang_var.set(config.get("ocr_language", "eng"))
 
-        # Speichere Initial-Werte
+        # Save initial values
         self.initial_values = {
             "autostart": self.autostart_var.get(),
             "language": self.lang_var.get()
         }
 
     def on_change(self):
-        """Wird bei Änderungen aufgerufen"""
+        """Called when changes are made"""
         current_values = {
             "autostart": self.autostart_var.get(),
             "language": self.lang_var.get()
@@ -358,16 +358,16 @@ Bei Problemen: github.com/DancingTedDanson011/AutoClip-OCR"""
         self.save_btn.config(state='normal' if self.changes_made else 'disabled')
 
     def save_settings(self):
-        """Speichert Einstellungen"""
+        """Saves settings"""
         try:
             # Autostart
             set_autostart(self.autostart_var.get())
             config.set("autostart", self.autostart_var.get())
 
-            # Sprache
+            # Language
             config.set("ocr_language", self.lang_var.get())
 
-            # Speichern
+            # Save
             if config.save():
                 TOAST.show("Einstellungen", "Erfolgreich gespeichert!", duration=2)
                 self.root.destroy()
@@ -377,7 +377,7 @@ Bei Problemen: github.com/DancingTedDanson011/AutoClip-OCR"""
             messagebox.showerror("Fehler", f"Fehler beim Speichern: {e}")
 
     def show(self):
-        """Zeigt Dialog"""
+        """Shows dialog"""
         self.root.mainloop()
 
 # --- Screenshot & OCR ---
@@ -438,7 +438,7 @@ class SnipTool:
         TOAST.show("AutoClip-OCR", "Abgebrochen", duration=2)
 
 def process_screenshot(bbox):
-    """OCR-Verarbeitung"""
+    """OCR processing"""
     try:
         img = ImageGrab.grab(bbox=bbox)
         img = img.convert("L")
@@ -466,7 +466,7 @@ def process_screenshot(bbox):
             TOAST.show("Fehler", f"OCR-Fehler: {error_msg}", duration=5)
 
 def start_selection():
-    """Startet Screenshot-Auswahl"""
+    """Starts screenshot selection"""
     try:
         tool = SnipTool()
         tool.root.mainloop()
@@ -475,12 +475,12 @@ def start_selection():
 
 # --- System Tray ---
 def create_tray_icon():
-    """Erstellt System Tray Icon"""
+    """Creates System Tray Icon"""
     try:
         import pystray
         from PIL import Image, ImageDraw
 
-        # Erstelle Icon
+        # Create icon
         def create_icon_image():
             size = (64, 64)
             image = Image.new('RGB', size, color='#0078d4')
@@ -490,7 +490,7 @@ def create_tray_icon():
 
         icon_image = create_icon_image()
 
-        # Menü
+        # Menu
         menu = pystray.Menu(
             pystray.MenuItem("Screenshot (Strg+Alt+S)", lambda: start_selection()),
             pystray.MenuItem("Einstellungen", lambda: show_settings()),
@@ -500,7 +500,7 @@ def create_tray_icon():
 
         icon = pystray.Icon(APP_NAME, icon_image, APP_NAME, menu)
 
-        # Starte in Thread
+        # Start in thread
         threading.Thread(target=icon.run, daemon=True).start()
 
         return icon
@@ -511,12 +511,12 @@ def create_tray_icon():
 tray_icon = None
 
 def show_settings():
-    """Öffnet Einstellungen"""
+    """Opens settings"""
     dialog = SettingsDialog()
     dialog.show()
 
 def exit_app():
-    """Beendet Programm"""
+    """Exits program"""
     if tray_icon:
         tray_icon.stop()
     sys.exit(0)
@@ -525,7 +525,7 @@ def exit_app():
 def main():
     global tray_icon
 
-    # Verhindere mehrfaches Starten
+    # Prevent multiple instances
     import socket
     try:
         lock_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -534,7 +534,7 @@ def main():
         messagebox.showwarning(APP_NAME, f"{APP_NAME} läuft bereits!")
         sys.exit(1)
 
-    # Prüfe Tesseract
+    # Check Tesseract
     if not tesseract_path:
         TOAST.show(
             "Tesseract nicht gefunden!",
@@ -542,7 +542,7 @@ def main():
             duration=8
         )
 
-    # Erster Start?
+    # First run?
     if config.is_first_run():
         TOAST.show("Willkommen!", f"{APP_NAME} wird eingerichtet...", duration=2)
         time.sleep(2)
@@ -556,10 +556,10 @@ def main():
     # System Tray Icon
     tray_icon = create_tray_icon()
 
-    # Hotkey registrieren
+    # Register hotkey
     keyboard.add_hotkey(HOTKEY, start_selection)
 
-    # Benachrichtigung
+    # Notification
     TOAST.show(
         f"{APP_NAME} bereit!",
         f"Drücke {HOTKEY.upper().replace('+', ' + ')} für Screenshot-OCR",
@@ -574,7 +574,7 @@ def main():
     print(f"  OCR-Sprache: {config.get('ocr_language', 'eng')}")
     print(f"{'='*50}\n")
 
-    # Blockiert bis Programm beendet wird
+    # Block until program is terminated
     try:
         keyboard.wait()
     except KeyboardInterrupt:
