@@ -1,5 +1,4 @@
-# -*- mode: python ; coding: utf-8 -*-
-# Minimal PyInstaller spec for OCR ClipText (only required packages)
+# PyInstaller spec for OCR ClipText
 
 block_cipher = None
 

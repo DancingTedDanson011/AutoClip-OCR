@@ -15,13 +15,13 @@ import winreg
 import json
 from pathlib import Path
 
-# --- Configuration ---
+# Configuration
 APP_NAME = "AutoClip-OCR"
 VERSION = "2.0"
 HOTKEY = "ctrl+alt+s"
 CONFIG_FILE = os.path.join(os.path.expanduser("~"), ".autoclip-ocr", "config.json")
 
-# --- Config Management ---
+# Config Management
 class Config:
     def __init__(self):
         self.config_dir = os.path.dirname(CONFIG_FILE)
@@ -74,7 +74,7 @@ class Config:
 # Global config instance
 config = Config()
 
-# --- Find Tesseract Path ---
+# Find Tesseract Path
 def find_tesseract():
     """Tries to find Tesseract automatically"""
     appdata_path = os.path.join(
@@ -107,7 +107,7 @@ tesseract_path = find_tesseract()
 if tesseract_path:
     pytesseract.pytesseract.tesseract_cmd = tesseract_path
 
-# --- Autostart Management ---
+# Autostart Management
 def is_in_autostart():
     """Checks if app is in autostart"""
     try:
@@ -150,7 +150,7 @@ def set_autostart(enabled):
         print(f"Autostart error: {e}")
         return False
 
-# --- Toast Notifications ---
+# Toast Notifications
 class SimpleToast:
     """Simple notifications with Tkinter"""
 
@@ -200,7 +200,7 @@ class SimpleToast:
 
 TOAST = SimpleToast()
 
-# --- Settings Dialog ---
+# Settings Dialog
 class SettingsDialog:
     def __init__(self, parent=None):
         self.root = tk.Toplevel(parent) if parent else tk.Tk()
@@ -380,7 +380,7 @@ Bei Problemen: github.com/DancingTedDanson011/AutoClip-OCR"""
         """Shows dialog"""
         self.root.mainloop()
 
-# --- Screenshot & OCR ---
+# Screenshot & OCR
 class SnipTool:
     def __init__(self):
         self.start_x = None
@@ -473,7 +473,7 @@ def start_selection():
     except Exception as e:
         TOAST.show("Fehler", f"Fehler: {e}", duration=5)
 
-# --- System Tray ---
+# System Tray
 def create_tray_icon():
     """Creates System Tray Icon"""
     try:
@@ -521,7 +521,7 @@ def exit_app():
         tray_icon.stop()
     sys.exit(0)
 
-# --- Main ---
+# Main
 def main():
     global tray_icon
 
